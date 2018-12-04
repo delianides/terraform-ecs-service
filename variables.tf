@@ -1,20 +1,16 @@
-variable "cluster_name" {
+variable "cluster" {
   description = "The name of an EXISTING ECS cluster."
   default     = ""
 }
 
-variable "service_name" {
+variable "name" {
   description = "The name of the service that will be appended to the environment. This will also be the task definition family name"
   default     = ""
 }
 
-variable "environments" {
-  description = "The environments to create services for"
-  type        = "list"
-  default     = ["production", "beta"]
-}
+variable "environment" {}
 
-variable "container_env_vars" {
+variable "env_vars" {
   description = "The environment variables that get passed into the task definition"
   type        = "list"
 
@@ -22,18 +18,30 @@ variable "container_env_vars" {
     {
       port = "3000"
     },
-    {
-      node_env = "BETA"
-    },
   ]
 }
 
-variable "main_domain" {
-  description = "The main domain for the service"
-  default     = ""
+variable "load_balancer_security_group" {}
+variable "target_group_arn" {
+  default = ""
+  description = "Target group to assign the service to"
 }
 
-variable "mapped_domains" {
-  description = "The domain to assign in DNS"
-  default     = {}
+variable "healthcheck" {
+  default = "/healthcheck"
+  description = "healthcheck path for service"
+}
+
+variable "image" {}
+variable "port" {}
+variable "desired_count" {
+  default = 1
+}
+
+variable "memory" {
+  default = 128
+}
+
+variable "cpu" {
+  default = 128
 }
