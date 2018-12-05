@@ -33,9 +33,9 @@ module "ecs_service_sg" {
       source_security_group_id = "${var.load_balancer_security_group}"
     },
     {
-      from_port                = 3000
-      to_port                  = 65535
-      protocol                 = "tcp"
+      from_port = 3000
+      to_port   = 65535
+      protocol  = 6
       source_security_group_id = "${var.load_balancer_security_group}"
     },
   ]

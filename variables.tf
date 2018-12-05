@@ -15,7 +15,7 @@ variable "env_vars" {
   type        = "map"
 
   default = {
-    port = "3000"
+    port = 3000
   }
 }
 
@@ -32,7 +32,9 @@ variable "healthcheck" {
 }
 
 variable "image" {}
-variable "port" {}
+variable "port" {
+  default = 3000
+}
 variable "desired_count" {
   default = 1
 }

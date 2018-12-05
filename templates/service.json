@@ -12,9 +12,9 @@
     "entryPoint": null,
     "portMappings": [
       {
-        "hostPort": "${port}",
+        "hostPort": 3000,
         "protocol": "tcp",
-        "containerPort": "${port}"
+        "containerPort": 3000
       }
     ],
     "command": null,
