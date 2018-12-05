@@ -12,13 +12,11 @@ variable "environment" {}
 
 variable "env_vars" {
   description = "The environment variables that get passed into the task definition"
-  type        = "list"
+  type        = "map"
 
-  default = [
-    {
-      port = "3000"
-    },
-  ]
+  default = {
+    port = "3000"
+  }
 }
 
 variable "vpc_id" {}
