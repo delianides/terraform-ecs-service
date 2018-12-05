@@ -21,6 +21,7 @@ variable "env_vars" {
   ]
 }
 
+variable "vpc_id" {}
 variable "load_balancer_security_group" {}
 variable "target_group_arn" {
   default = ""

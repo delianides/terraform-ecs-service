@@ -5,9 +5,7 @@ terraform {
 data "aws_region" "current" {}
 
 data "aws_vpc" "this" {
-  tags {
-    Name = "${var.cluster}"
-  }
+  id = "${var.vpc_id}"
 }
 
 data "aws_subnet_ids" "this" {
