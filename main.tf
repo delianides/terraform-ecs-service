@@ -75,11 +75,11 @@ resource "aws_iam_role_policy_attachment" "cloudwatch_role" {
 
 data "template_file" "td_env_vars" {
   template = "${file("${path.module}/templates/environment.json.tmpl")}"
-  count    = "${length(var.env_vars)}"
+  count    = "${length(keys(var.env_vars))}"
 
   vars {
-    key   = "${element(keys(var.env_vars[count.index]), 0)}"
-    value = "${element(values(var.env_vars[count.index]), 0)}"
+    key   = "${element(keys(var.env_vars), count.index)}"
+    value = "${element(values(var.env_vars), count.index)}"
   }
 }
 
