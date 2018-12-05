@@ -88,6 +88,7 @@ data "template_file" "td_container_def" {
 
   vars {
     image       = "${var.image}"
+    name        = "${var.name}"
     region      = "${data.aws_region.current.name}"
     port        = "${var.port}"
     environment = "${var.environment}"
