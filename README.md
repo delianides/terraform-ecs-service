@@ -1,12 +1,10 @@
-Terraform ECS Service
-====
+# Terraform ECS Service
 
 This is a slightly opinionated way to create an ECS service in AWS. I'll need to
 add more customization as time permits. Heres a brief example of how to use this
 module.
 
 ```hcl
-
 module "ecs-service" {
 	source        = "github.com/delianides/terraform-ecs-service"
 	desired_count = 1
@@ -32,6 +30,8 @@ module "ecs-service" {
 NOTE: Setting host port for the container definitions is set to 3000 right now.
 There's a bug in terraform that will be resolved with 0.12 but until thats
 released it will be hardcoded.
+[#17033](https://github.com/hashicorp/terraform/issues/17033)
+[#3292](https://github.com/terraform-providers/terraform-provider-aws/issues/3292)
 
 The module outputs the dns_name of the ALB and the `family:revision` of the task
 definition.
@@ -52,6 +52,5 @@ definition.
 
 ### Future improvements
 
-- [  ] Define more than one container
-- [  ] Bring your own task definition, it creates it for you right now
-
+- [ ] Define more than one container
+- [ ] Bring your own task definition, it creates it for you right now
