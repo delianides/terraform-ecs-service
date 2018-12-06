@@ -59,7 +59,7 @@ data "aws_iam_role" "service" {
 }
 
 resource "aws_iam_role" "task" {
-  name               = "${var.name}-instance-role"
+  name               = "${var.name}-${var.environment}-instance-role"
   assume_role_policy = "${data.aws_iam_policy_document.this.json}"
 }
 
