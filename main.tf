@@ -59,7 +59,7 @@ data "aws_iam_role" "service" {
 }
 
 resource "aws_iam_role" "task" {
-  name               = "${var.name}_instance_role"
+  name               = "${var.name}-instance-role"
   assume_role_policy = "${data.aws_iam_policy_document.this.json}"
 }
 
@@ -97,7 +97,7 @@ data "template_file" "td_container_def" {
 }
 
 resource "aws_ecs_task_definition" "this" {
-  family                = "${var.name}"
+  family                = "${var.environment}-${var.name}"
   container_definitions = "${data.template_file.td_container_def.rendered}"
   execution_role_arn    = "${aws_iam_role.task.arn}"
   task_role_arn         = "${aws_iam_role.task.arn}"
